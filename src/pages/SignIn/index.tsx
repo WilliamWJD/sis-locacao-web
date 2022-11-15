@@ -4,6 +4,7 @@ import { Container, Content, Form } from "./styles";
 
 import imageSignIn from '../../images/imageSignIn.svg';
 import { Input } from "../../components/Input";
+import { Button } from '../../components/Button';
 
 export function SignIn() {
     return (
@@ -22,7 +23,11 @@ export function SignIn() {
                         placeholder="*********"
                         IconImage={FiLock}
                     />
-                    <button>Entrar</button>
+
+                    <Button
+                        title="Entrar"
+                    />
+
                     <a href="">Cadastre-se</a>
                 </Form>
 

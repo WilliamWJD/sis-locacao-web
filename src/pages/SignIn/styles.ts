@@ -31,7 +31,7 @@ export const Content = styled.div`
     }
 `;
 
-export const Form = styled.div`
+export const Form = styled.form`
     max-width: 422px;
     width: 100%;
     background-color: #fff;
@@ -41,24 +41,9 @@ export const Form = styled.div`
     display: flex;
     flex-direction: column;
 
-    button{
-        height: 50px;
-        background-color: #27AE60;
-        border: none;
-        font-weight: 700;
-        color: #fff;
-        border-radius: 10px;
-        font-size: 17px;
-        transition: background-color;
-    }
-
     a{
         color: #7F8C8D;
         align-self: center;
         margin-top: 19px
-    }
-
-    button:hover{
-        background-color: #158D48;
     }
 `;
