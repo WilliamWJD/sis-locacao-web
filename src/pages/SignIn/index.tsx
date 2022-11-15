@@ -1,8 +1,9 @@
 import { FiMail, FiLock } from 'react-icons/fi';
 
-import { Container, Content, Form, InputGroup, InputBox } from "./styles";
+import { Container, Content, Form } from "./styles";
 
 import imageSignIn from '../../images/imageSignIn.svg';
+import { Input } from "../../components/Input";
 
 export function SignIn() {
     return (
@@ -11,21 +12,16 @@ export function SignIn() {
                 <img src={imageSignIn} alt="" />
 
                 <Form>
-                    <InputGroup>
-                        <label>E-mail</label>
-                        <InputBox>
-                            <FiMail size={20} color="#7F8C8D" />
-                            <input type="text" placeholder="Dígite seu e-mail" />
-                        </InputBox>
-                    </InputGroup>
-                    <InputGroup>
-                        <label>Senha</label>
-                        <InputBox>
-                            <FiLock size={20} color="#7F8C8D" />
-                            <input type="password" placeholder="**********" />
-                        </InputBox>
-                    </InputGroup>
-
+                    <Input
+                        label="Email"
+                        placeholder="Digite seu e-mail"
+                        IconImage={FiMail}
+                    />
+                    <Input
+                        label="Senha"
+                        placeholder="*********"
+                        IconImage={FiLock}
+                    />
                     <button>Entrar</button>
                     <a href="">Cadastre-se</a>
                 </Form>
