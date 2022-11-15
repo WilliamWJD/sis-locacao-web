@@ -1,11 +1,12 @@
+import { ButtonHTMLAttributes } from 'react';
 import { Container } from "./styles";
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     title: string;
 }
 
-export function Button({ title }: ButtonProps) {
+export function Button({ title, ...rest }: ButtonProps) {
     return (
-        <Container>{title}</Container>
+        <Container {...rest}>{title}</Container>
     )
 }
