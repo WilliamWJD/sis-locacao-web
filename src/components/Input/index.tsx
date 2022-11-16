@@ -1,4 +1,5 @@
-import { InputHTMLAttributes } from 'react';
+import React, { forwardRef, ForwardRefRenderFunction, InputHTMLAttributes } from 'react';
+
 import { IconBaseProps } from 'react-icons';
 
 import { Container, InputBox } from "./styles";
@@ -8,15 +9,16 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     IconImage?: React.ComponentType<IconBaseProps>;
 }
 
-export function Input({ label, IconImage, ...rest }: InputProps) {
-
+const InputComponent: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (({ label, IconImage, ...rest }, ref) => {
     return (
         <Container>
             <label>{label}</label>
             <InputBox>
                 {IconImage && <IconImage size={20} color="#7F8C8D" />}
-                <input {...rest} />
+                <input ref={ref} {...rest} />
             </InputBox>
-        </Container>
+        </Container >
     )
-}
+})
+
+export const Input = forwardRef(InputComponent);
