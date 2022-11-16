@@ -1,24 +1,19 @@
-import { useState } from 'react';
 import { FiMail, FiLock } from 'react-icons/fi';
+import { useForm } from 'react-hook-form';
 import { Container, Content, Form } from "./styles";
 
 import imageSignIn from '../../images/imageSignIn.svg';
 
 import { Input } from "../../components/Input";
 import { Button } from '../../components/Button';
+import { useRef } from 'react';
 
 export function SignIn() {
-    const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const formRef = useRef();
 
-    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault();
-        const data = {
-            email,
-            senha
-        }
-
-        console.log(data);
+    function onSubmit(data: any) {
+        console.log(data)
     }
 
     return (
@@ -26,22 +21,22 @@ export function SignIn() {
             <Content>
                 <img src={imageSignIn} alt="" />
 
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={handleSubmit(onSubmit)}>
                     <Input
                         label="Email"
                         placeholder="Digite seu e-mail"
                         IconImage={FiMail}
-                        value={email}
-                        onChange={e => setEmail(e.target.value)}
                         type="email"
+                        id="email"
+                        {...register("email")}
                     />
                     <Input
                         label="Senha"
                         placeholder="*********"
                         IconImage={FiLock}
-                        value={senha}
-                        onChange={e => setSenha(e.target.value)}
                         type="password"
+                        id="senha"
+                        {...register("senha")}
                     />
 
                     <Button
@@ -51,7 +46,6 @@ export function SignIn() {
 
                     <a href="">Cadastre-se</a>
                 </Form>
-
             </Content>
         </Container>
     )
