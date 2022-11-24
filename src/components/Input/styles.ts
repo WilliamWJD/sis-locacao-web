@@ -5,10 +5,17 @@ export const Container = styled.div`
     flex-direction: column;
     margin-bottom: 19px;
 
-    label{
+    .label-title-input{
         color: #7F8C8D;
         font-weight: 700;
         margin-bottom: 10px;
+    }
+
+    .label-error{
+        margin-top: 10px;
+        font-weight: normal;
+        font-size: 14px;
+        color: #e74c3c;
     }
 `;
 
